@@ -1,4 +1,4 @@
-# ClassificationSetupR
+# Classification Setup R
 
 # References
 Watch videos mentioned below to build intution(....and that's all....don't worry about terminology...or maths). 
@@ -11,7 +11,7 @@ Focus on things like :
  4. Which columns/features are significant predictors and helping explain the underlying phenomenon?
  5. Metrics like Accuracy, ROC, Sensitivity, Specificity(.....very important)
  6. Understand what a confusion matrix is
- 6. Why accuracy can be a misleading metric to use(You will understand this once you understand class imbalance prolem)
+ 6. Why accuracy can be a misleading metric to use(Check class imbalance problem)
  7. Understand ROC curve and how it is built(Understand confusion matric before this). As a business student you should know how to interpret this. 
 
 Logistic Regression : https://www.youtube.com/watch?v=yIYKR4sgzI8&vl=en
