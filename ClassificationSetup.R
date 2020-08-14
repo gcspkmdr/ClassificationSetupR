@@ -149,14 +149,15 @@ train_data = dataImputation(train_data)
 # This is a scenario where the number of observations belonging to one class is significantly lower than those belonging to the other classes
 ggplot(train_data) + geom_bar(aes(x = train_data[, target])) + xlab(target) + ylab("Class Count")
 
-# Now start analyzing individual variables wrt  the target variable
-#ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'sbp'])) + xlab(target) + ylab('sbp')
-#ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'tobacco'])) + xlab(target) + ylab('tobacco')
-#ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'obesity'])) + xlab(target) + ylab('obesity')
+# Now start analyzing individual variables wrt  the target variable(The following are example. Modify them according to the dataset given to you)
+# Plot target variable against numeric variables
+ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'sbp'])) + xlab(target) + ylab('sbp')
+ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'tobacco'])) + xlab(target) + ylab('tobacco')
+ggplot(train_data) + geom_boxplot(aes(x = train_data[, target] , y = train_data[, 'obesity'])) + xlab(target) + ylab('obesity')
 
 # Plot two categorical variales against each other ( Stacked barchart , Side-by-Side bar chart)
-#ggplot(train_data, aes(x = train_data[, target], fill = famhist)) + geom_bar(position = "stack") + xlab(target) + ylab('famhist')
-#ggplot(train_data, aes(x = train_data[, target], fill = famhist)) + geom_bar(position = position_dodge(preserve = "single")) + xlab(target) + ylab('famhist')
+ggplot(train_data, aes(x = train_data[, target], fill = famhist)) + geom_bar(position = "stack") + xlab(target) + ylab('famhist')
+ggplot(train_data, aes(x = train_data[, target], fill = famhist)) + geom_bar(position = position_dodge(preserve = "single")) + xlab(target) + ylab('famhist')
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -282,7 +283,7 @@ y_val <- train_data[-train.index, target] #Val labels
 # Check target encoding-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 target_encoding <- contrasts(y_train)
-target_codes = row.names(target_encoding)
+target_codes <- row.names(target_encoding)
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -436,7 +437,6 @@ plot(roc.perf,
 abline(a = 0, b = 1)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-as.character(factor(y_train, labels=c("0","1")))
 
 # The following algorithm is also a variant of decision tree but uses a technique known as boosting
 # Gradient Boosting
@@ -581,8 +581,8 @@ ggplot(data=df.auc, aes(x=classifier_list_auc, y=auc_list)) + geom_bar(stat="ide
 # classifier over its entire operating range. The most widely-used measure is the area under the curve (AUC). The AUC can be used to compare the performance of two or more classifiers.
 # A single threshold can be selected and the classifiers’ performance at that point compared, or the overall performance can be compared by considering the AUC.
 
-
-# If a seperate test data is provided
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Run this part only if a seperate test data is provided
 
 test_data <-read.csv(file.choose(),na.strings = c("", "NA"))
 head(test_data, 10)
